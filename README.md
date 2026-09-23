@@ -14,8 +14,9 @@ Framework Overview
 
 The temporal network preprocessing procedure converts continuous interactions into temporal graph snapshots and constructs prediction samples using a sliding-window strategy.
 
-The figure is directly shown below:
-<img width="7748" height="5612" alt="split+window_01" src="https://github.com/user-attachments/assets/3e6f55b5-fadf-4be1-9b42-59b42111b226" />
+<p align="center">
+<img src="./Figures/split+window.png" width="90%">
+</p>
 
 The sliding-window strategy separates historical observations from future prediction targets. Historical snapshots are used as model inputs, while future snapshots serve as prediction targets. This design prevents information leakage and enables rigorous evaluation for prospective node importance prediction.
 
