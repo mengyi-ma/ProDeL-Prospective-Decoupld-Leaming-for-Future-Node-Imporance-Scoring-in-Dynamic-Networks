@@ -90,7 +90,6 @@ ProDeL/
 │       Temporal graph dataset construction.
 │
 ├── Project/
-│   Project-related files.
 │
 ├── README.md
 │
