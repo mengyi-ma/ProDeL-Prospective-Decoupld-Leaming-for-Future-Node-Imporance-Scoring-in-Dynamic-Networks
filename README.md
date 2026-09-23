@@ -8,9 +8,9 @@ The code includes the complete pipeline for temporal network preprocessing, slid
 
 ------------------------------------------------------------------------
 
-Framework Overview
+##Framework Overview
 
-1. Temporal Network Construction and Sliding-Window Partition
+###Temporal Network Construction and Sliding-Window Partition
 
 The temporal network preprocessing procedure converts continuous interactions into temporal graph snapshots and constructs prediction samples using a sliding-window strategy.
 
@@ -22,7 +22,7 @@ The sliding-window strategy separates historical observations from future predic
 
 ------------------------------------------------------------------------
 
-2. Overall Two-Stage Learning Framework
+###Overall Two-Stage Learning Framework
 
 The complete model architecture is illustrated below.
 
@@ -50,7 +50,7 @@ The framework integrates:
 
 ------------------------------------------------------------------------
 
-# Repository Structure
+## Repository Structure
 
 ```text
 ProDeL/
@@ -107,7 +107,7 @@ ProDeL/
 
 ------------------------------------------------------------------------
 
-Data Processing Pipeline
+###Data Processing Pipeline
 
 The preprocessing pipeline mainly contains:
 
@@ -125,7 +125,7 @@ The procedure includes:
 
 ------------------------------------------------------------------------
 
-Model Architecture
+###Model Architecture
 
 The model consists of three main components.
 
@@ -170,7 +170,7 @@ information.
 
 ------------------------------------------------------------------------
 
-Requirements
+##Requirements
 
 Python >= 3.8
 
@@ -180,7 +180,7 @@ torch torch-geometric numpy pandas networkx scikit-learn matplotlib tqdm
 
 ------------------------------------------------------------------------
 
-Running
+##Running
 
 After preparing datasets and modifying paths:
 
