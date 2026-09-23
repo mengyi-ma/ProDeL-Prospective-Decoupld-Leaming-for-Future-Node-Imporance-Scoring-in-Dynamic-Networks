@@ -58,26 +58,34 @@ ProDeL/
 ├── Data/
 │   ├── datasets/
 │   │   ├── raw/
+│   │   │
 │   │   └── processed_data/
 │   │
 │   ├── data_processing.py
+│   │
 │   ├── dataloader.py
+│   │
 │   └── temporal_degree_labels.py
 │
 ├── Figures/
 │   ├── Two_stage.png
+│   │
 │   ├── split+window.png
 │   │
 │   └── results/
+│       Experimental results and visualization outputs.
 │
 ├── Model/
 │   ├── gnn.py
+│   │
 │   └── graph.py
 │
 ├── Project/
 │   ├── train.py
+│   │
 │   ├── metrics.py
-│   └── visualization.py
+│   │
+│   └── visulation.py
 │
 ├── README.md
 │
@@ -147,6 +155,31 @@ Regression loss + Graph reconstruction loss
 The model refines importance scores while preserving structural
 information.
 
+---
+
+## Code Organization
+
+The implementation is organized into four main components:
+
+1. Data preprocessing  
+2. Temporal graph construction  
+3. Model architecture  
+4. Training and evaluation  
+
+
+| Component | File | Description |
+|-----------|------|-------------|
+| Data Preprocessing | `Data/data_processing.py` | Preprocesses raw temporal interaction data, including data cleaning, timestamp processing, temporal snapshot construction, and sliding-window generation. |
+| Data Preprocessing | `Data/dataloader.py` | Loads processed temporal graph data and converts graph information into model-ready inputs. |
+| Label Generation | `Data/temporal_degree_labels.py` | Generates future node importance labels used for supervised learning and prediction evaluation. |
+| Graph Construction | `Model/graph.py` | Constructs temporal graph datasets and organizes sequential graph snapshots for spatio-temporal learning. |
+| Spatial-Temporal Model | `Model/gnn.py` | Implements the graph neural network modules, including spatial representation learning and temporal dependency modeling. |
+| Training Pipeline | `Project/train.py` | Provides the complete training procedure, including model optimization, loss computation, validation, and model selection. |
+| Evaluation | `Project/metrics.py` | Implements evaluation metrics for node importance ranking and prediction performance assessment. |
+| Visualization | `Project/visulation.py` | Provides visualization utilities for experimental results and model analysis. |
+| Experiment Entry | `main.py` | Serves as the main entry point for experiments, including configuration settings, dataset loading, model initialization, and training execution. |
+
+---
 ------------------------------------------------------------------------
 
 ## Requirements
