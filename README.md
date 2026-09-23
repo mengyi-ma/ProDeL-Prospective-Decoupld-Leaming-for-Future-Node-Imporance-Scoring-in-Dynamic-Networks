@@ -50,18 +50,52 @@ The framework integrates:
 
 ------------------------------------------------------------------------
 
-Repository Structure
+# Repository Structure
 
-ProDeL/ | ├── README.md | ├── figures/ | ├── split+window.png | └──
-Two_stage.png | ├── main.py | Main experiment entry and hyperparameter
-configuration. | ├── train.py | Training pipeline and optimization
-procedure. | ├── gnn.py | Graph neural network architectures. | ├──
-graph.py | Temporal graph dataset construction. | ├── dataloader.py |
-Temporal graph preprocessing and graph loading. | ├── data_processing.py
-| Raw interaction preprocessing and sliding-window generation. | ├──
-temporal_degree_labels.py | Generation of node importance labels. | ├──
-metrics.py | Evaluation metrics and ranking performance calculation. |
-└── visulation.py Visualization utilities.
+```text
+ProDeL/
+│
+├── Data/
+│   ├── datasets/
+│   │   ├── raw/
+│   │   │   Raw temporal network datasets.
+│   │   │
+│   │   └── processed_data/
+│   │       Processed temporal graph data.
+│   │
+│   ├── data_processing.py
+│   │   Data preprocessing and sliding-window construction.
+│   │
+│   ├── dataloader.py
+│   │   Temporal graph loading and graph preprocessing.
+│   │
+│   └── temporal_degree_labels.py
+│       Generation of node importance labels.
+│
+├── Figures/
+│   ├── Two_stage.png
+│   │   Overall two-stage learning framework.
+│   │
+│   ├── split+window.png
+│   │   Temporal network construction and sliding-window partition.
+│   │
+│   └── results/
+│       Experimental results and visualization outputs.
+│
+├── Model/
+│   ├── gnn.py
+│   │   Graph neural network architectures.
+│   │
+│   └── graph.py
+│       Temporal graph dataset construction.
+│
+├── Project/
+│   Project-related files.
+│
+├── README.md
+│
+└── main.py
+    Main experiment entry and hyperparameter configuration.
 
 ------------------------------------------------------------------------
 
