@@ -134,26 +134,16 @@ The learned representations are used for:
 
 ------------------------------------------------------------------------
 
-Training
+## Training Strategy
 
-The training process contains two stages.
+The training process follows a two-stage learning paradigm, where the model first performs coarse candidate screening and then refines continuous node importance scores.
 
-Stage I
+| Stage | Task Type | Main Objective | Loss Function | Description |
+|-------|-----------|----------------|---------------|-------------|
+| Stage I: Categorization-based Coarse Screening | Classification | Identify potential future top-k important nodes from historical temporal graph sequences. | Binary Classification Loss (`L_cls`) | The model learns discriminative representations to distinguish future important nodes from other nodes and provides candidate nodes for subsequent refinement. |
+| Stage II: Regression-based Refined Scoring | Regression | Predict continuous future node importance scores and generate final rankings. | Regression Loss (`L_MSE`) + Graph Reconstruction Loss (`L_GAE`) | The model fine-tunes learned representations to estimate importance scores while preserving structural information through auxiliary graph reconstruction. |
 
-Objective:
-
-Binary classification loss
-
-The model learns to distinguish future important nodes from other nodes.
-
-Stage II
-
-Objective:
-
-Regression loss + Graph reconstruction loss
-
-The model refines importance scores while preserving structural
-information.
+---
 
 ---
 
@@ -169,11 +159,10 @@ The implementation is organized into four main components:
 
 | Component | File | Description |
 |-----------|------|-------------|
-| Data Preprocessing | `Data/data_processing.py` | Preprocesses raw temporal interaction data, including data cleaning, timestamp processing, temporal snapshot construction, and sliding-window generation. |
-| Data Preprocessing | `Data/dataloader.py` | Loads processed temporal graph data and converts graph information into model-ready inputs. |
+| Data Preprocessing | `Data/data_processing.py` and `Data/dataloader.py` | Processes raw temporal interaction data, including data cleaning, timestamp processing, temporal snapshot construction, sliding-window generation, and loading processed temporal graph data for model training. |
 | Label Generation | `Data/temporal_degree_labels.py` | Generates future node importance labels used for supervised learning and prediction evaluation. |
 | Graph Construction | `Model/graph.py` | Constructs temporal graph datasets and organizes sequential graph snapshots for spatio-temporal learning. |
-| Spatial-Temporal Model | `Model/gnn.py` | Implements the graph neural network modules, including spatial representation learning and temporal dependency modeling. |
+| Spatial-Temporal Model | `Model/gnn.py` | Implements graph neural network modules, including spatial representation learning and temporal dependency modeling. |
 | Training Pipeline | `Project/train.py` | Provides the complete training procedure, including model optimization, loss computation, validation, and model selection. |
 | Evaluation | `Project/metrics.py` | Implements evaluation metrics for node importance ranking and prediction performance assessment. |
 | Visualization | `Project/visulation.py` | Provides visualization utilities for experimental results and model analysis. |
