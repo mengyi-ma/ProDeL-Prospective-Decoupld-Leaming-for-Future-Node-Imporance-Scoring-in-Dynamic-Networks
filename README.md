@@ -58,51 +58,30 @@ ProDeL/
 ├── Data/
 │   ├── datasets/
 │   │   ├── raw/
-│   │   │   Raw temporal network datasets.
-│   │   │
 │   │   └── processed_data/
-│   │       Processed temporal graph data.
 │   │
 │   ├── data_processing.py
-│   │   Data preprocessing and sliding-window construction.
-│   │
 │   ├── dataloader.py
-│   │   Temporal graph loading and graph preprocessing.
-│   │
 │   └── temporal_degree_labels.py
-│       Generation of node importance labels.
 │
 ├── Figures/
 │   ├── Two_stage.png
-│   │   Overall two-stage learning framework.
-│   │
 │   ├── split+window.png
-│   │   Temporal network construction and sliding-window partition.
 │   │
 │   └── results/
-│       Experimental results and visualization outputs.
 │
 ├── Model/
 │   ├── gnn.py
-│   │   Graph neural network architectures.
-│   │
 │   └── graph.py
-│       Temporal graph dataset construction.
 │
 ├── Project/
 │   ├── train.py
-│   │   Training pipeline and optimization procedure.
-│   │
 │   ├── metrics.py
-│   │   Evaluation metrics and ranking performance calculation.
-│   │
 │   └── visualization.py
-│       Visualization utilities.
 │
 ├── README.md
 │
 └── main.py
-    Main experiment entry and hyperparameter configuration.
 ```
 
 ------------------------------------------------------------------------
