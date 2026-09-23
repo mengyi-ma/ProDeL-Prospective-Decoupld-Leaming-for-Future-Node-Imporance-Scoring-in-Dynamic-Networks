@@ -10,7 +10,7 @@ The code implements the complete pipeline, including temporal network preprocess
 ## Framework Overview
 
 
-### Temporal Network Construction and Prediction Setting
+### （1）Temporal Network Construction and Prediction Setting
 
 
 The framework first transforms continuous temporal interactions into a sequence of temporal graph snapshots.
@@ -28,7 +28,7 @@ This design separates observed historical information from future prediction tar
 
 ---
 
-### Overall Two-Stage Learning Framework
+### （2）Overall Two-Stage Learning Framework
 
 
 The proposed framework adopts a two-stage learning paradigm to predict future node importance.
