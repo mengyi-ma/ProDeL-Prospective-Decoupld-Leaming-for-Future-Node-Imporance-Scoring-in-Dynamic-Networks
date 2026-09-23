@@ -90,11 +90,20 @@ ProDeL/
 │       Temporal graph dataset construction.
 │
 ├── Project/
+│   ├── train.py
+│   │   Training pipeline and optimization procedure.
+│   │
+│   ├── metrics.py
+│   │   Evaluation metrics and ranking performance calculation.
+│   │
+│   └── visualization.py
+│       Visualization utilities.
 │
 ├── README.md
 │
 └── main.py
     Main experiment entry and hyperparameter configuration.
+```
 
 ------------------------------------------------------------------------
 
