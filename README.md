@@ -144,6 +144,8 @@ The training process follows a two-stage learning paradigm, where the model firs
 | Stage II: Regression-based Refined Scoring | Regression | Predict continuous future node importance scores and generate final rankings. | Regression Loss (`L_MSE`) + Graph Reconstruction Loss (`L_GAE`) | The model fine-tunes learned representations to estimate importance scores while preserving structural information through auxiliary graph reconstruction. |
 
 ---
+---
+
 ## Code Organization
 
 The implementation is organized into four main components:
@@ -165,6 +167,8 @@ The implementation is organized into four main components:
 | Evaluation | `Project/metrics.py` | Implements evaluation metrics for node importance ranking and prediction performance assessment. |
 | Visualization | `Project/visulation.py` | Provides visualization utilities for experimental results and model analysis. |
 | Experiment Entry | `main.py` | Serves as the main entry point for experiments, including configuration settings, dataset loading, model initialization, and training execution. |
+
+---
 
 ------------------------------------------------------------------------
 
