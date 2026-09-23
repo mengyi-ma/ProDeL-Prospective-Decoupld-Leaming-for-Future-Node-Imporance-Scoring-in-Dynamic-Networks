@@ -15,7 +15,7 @@ Framework Overview
 The temporal network preprocessing procedure converts continuous interactions into temporal graph snapshots and constructs prediction samples using a sliding-window strategy.
 
 <p align="center">
-<img src="./Figures/split+window.png" width="90%">
+<img src="./Figures/split+window.png" width="65%">
 </p>
 
 The sliding-window strategy separates historical observations from future prediction targets. Historical snapshots are used as model inputs, while future snapshots serve as prediction targets. This design prevents information leakage and enables rigorous evaluation for prospective node importance prediction.
@@ -25,6 +25,10 @@ The sliding-window strategy separates historical observations from future predic
 2. Overall Two-Stage Learning Framework
 
 The complete model architecture is illustrated below.
+
+<p align="center">
+<img src="./Figures/Two_stage.png" width="65%">
+</p>
 
 The framework adopts a two-stage learning paradigm.
 
@@ -45,5 +49,106 @@ The framework integrates:
 -   Auxiliary graph reconstruction
 
 ------------------------------------------------------------------------
+
+Repository Structure
+
+ProDeL/ | ├── README.md | ├── figures/ | ├── split+window.png | └──
+Two_stage.png | ├── main.py | Main experiment entry and hyperparameter
+configuration. | ├── train.py | Training pipeline and optimization
+procedure. | ├── gnn.py | Graph neural network architectures. | ├──
+graph.py | Temporal graph dataset construction. | ├── dataloader.py |
+Temporal graph preprocessing and graph loading. | ├── data_processing.py
+| Raw interaction preprocessing and sliding-window generation. | ├──
+temporal_degree_labels.py | Generation of node importance labels. | ├──
+metrics.py | Evaluation metrics and ranking performance calculation. |
+└── visulation.py Visualization utilities.
+
+------------------------------------------------------------------------
+
+Data Processing Pipeline
+
+The preprocessing pipeline mainly contains:
+
+data_processing.py
+
+dataloader.py
+
+The procedure includes:
+
+-   Raw interaction loading
+-   Temporal snapshot construction
+-   Sliding-window partition
+-   Graph structure generation
+-   Node feature extraction
+
+------------------------------------------------------------------------
+
+Model Architecture
+
+The model consists of three main components.
+
+Spatial Encoder
+
+Extracts topology-aware node representations from temporal graph snapshots.
+
+Temporal Encoder
+
+Captures historical dependencies using temporal modeling mechanisms.
+
+Node Importance Prediction
+
+The learned representations are used for:
+
+-   Future top-k node identification
+-   Continuous importance score prediction
+-   Node ranking generation
+
+------------------------------------------------------------------------
+
+Training
+
+The training process contains two stages.
+
+Stage I
+
+Objective:
+
+Binary classification loss
+
+The model learns to distinguish future important nodes from other nodes.
+
+Stage II
+
+Objective:
+
+Regression loss + Graph reconstruction loss
+
+The model refines importance scores while preserving structural
+information.
+
+------------------------------------------------------------------------
+
+Requirements
+
+Python >= 3.8
+
+Main dependencies:
+
+torch torch-geometric numpy pandas networkx scikit-learn matplotlib tqdm
+
+------------------------------------------------------------------------
+
+Running
+
+After preparing datasets and modifying paths:
+
+python main.py
+
+------------------------------------------------------------------------
+
+License
+
+This repository is released for academic research purposes.
+
 
 
