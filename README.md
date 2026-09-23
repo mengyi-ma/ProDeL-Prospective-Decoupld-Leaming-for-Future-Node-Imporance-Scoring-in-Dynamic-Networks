@@ -144,7 +144,6 @@ The training process follows a two-stage learning paradigm, where the model firs
 | Stage II: Regression-based Refined Scoring | Regression | Predict continuous future node importance scores and generate final rankings. | Regression Loss (`L_MSE`) + Graph Reconstruction Loss (`L_GAE`) | The model fine-tunes learned representations to estimate importance scores while preserving structural information through auxiliary graph reconstruction. |
 
 ---
----
 
 ## Code Organization
 
@@ -159,16 +158,14 @@ The implementation is organized into four main components:
 | Component | File | Description |
 |-----------|------|-------------|
 | Data Preprocessing | `Data/data_processing.py` | Preprocesses raw temporal interaction data, including data cleaning, timestamp processing, temporal snapshot construction, and sliding-window generation. |
-|  | `Data/dataloader.py` | Loads processed temporal graph data and converts graph information into model-ready inputs. |
+| Data Preprocessing | `Data/dataloader.py` | Loads processed temporal graph data and converts graph information into model-ready inputs. |
 | Label Generation | `Data/temporal_degree_labels.py` | Generates future node importance labels used for supervised learning and prediction evaluation. |
 | Graph Construction | `Model/graph.py` | Constructs temporal graph datasets and organizes sequential graph snapshots for spatio-temporal learning. |
-| Spatial-Temporal Model | `Model/gnn.py` | Implements graph neural network modules, including spatial representation learning and temporal dependency modeling. |
+| Spatial-Temporal Model | `Model/gnn.py` | Implements the graph neural network modules, including spatial representation learning and temporal dependency modeling. |
 | Training Pipeline | `Project/train.py` | Provides the complete training procedure, including model optimization, loss computation, validation, and model selection. |
 | Evaluation | `Project/metrics.py` | Implements evaluation metrics for node importance ranking and prediction performance assessment. |
 | Visualization | `Project/visulation.py` | Provides visualization utilities for experimental results and model analysis. |
 | Experiment Entry | `main.py` | Serves as the main entry point for experiments, including configuration settings, dataset loading, model initialization, and training execution. |
-
----
 
 ------------------------------------------------------------------------
 
